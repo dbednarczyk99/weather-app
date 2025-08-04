@@ -1,16 +1,17 @@
 import styles from './WeatherSummary.module.scss';
 
-const WeatherSummary = () => {
+const WeatherSummary = weatherData => {
+  console.log(weatherData);
   return (
     <section className={styles.weatherSummary}>
       <img
         className={styles.weatherIcon}
-        alt="????"
-        src={`${process.env.PUBLIC_URL}/images/weather-icons/13d.png`} />
+        alt={`${weatherData.description}`}
+        src={`${process.env.PUBLIC_URL}/images/weather-icons/${weatherData.icon}.png`} />
       <div className={styles.weatherInfo}>
-        <h2>London</h2>
+        <h2>{weatherData.city}</h2>
         <p>
-          <strong>Temp:</strong> 20°C
+          <strong>Temp:</strong> {weatherData.temp}
         </p>
       </div>
     </section>
